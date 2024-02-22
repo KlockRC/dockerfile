@@ -1,0 +1,11 @@
+FROM  python:bookworm
+#diretorio nao criado sera criado na hora em python nao há diretorio padrao
+WORKDIR /app
+#primeiro ponto é tudo o segundo ponto é o workdir
+COPY app/. .
+#executar comando [DO SISTEMA] na imagem (nesse caso instalando o flask)
+RUN pip install flask
+# só pra deixar esplicito que é utilizada a porta 5000 [nesse caso] (nao necessario)
+EXPOSE 5000
+#por em execução (NAO COMANDOS)
+CMD [ "python", "app.py" ]
